@@ -4,6 +4,7 @@
 const logoutButton = '.user > .btn'
 const titleOfDashboardPage = 'Testers Hotel'
 const viewRoomsButton = ':nth-child(1) > .btn'
+const viewClientButton = '.blocks > :nth-child(2) > .btn'
 
 // actions/functions
 
@@ -21,12 +22,18 @@ function viewRooms(cy, contentToConfirm){
     cy.contains(contentToConfirm)
 }
 
+function viewClient(cy, contentToConfirm){
+    cy.get(viewClientButton).click()
+    cy.contains(contentToConfirm)
+}
+
 
 
 //exports
 module.exports = {
     checkTitleOfDashboardPage,
     performLogout,
-    viewRooms
+    viewRooms,
+    viewClient
 
 }

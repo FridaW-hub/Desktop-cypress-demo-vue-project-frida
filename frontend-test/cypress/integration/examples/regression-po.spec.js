@@ -5,6 +5,7 @@ import * as dashBoardFuncs from '../../pages/dashboardPage'
 import * as targets from '../../targets/targets'
 import * as roomsOverviewFuncs from '../../pages/roomsOverviewPage'
 import * as createRoomFuncs from '../../pages/createNewRoom'
+import * as clientOverviewFuncs from '../../pages/clientOverviewPage'
 
 //test suite
 describe('Test suite', function(){
@@ -52,13 +53,10 @@ describe('Test suite', function(){
         }) 
 
     //Test case view Client
-    it('Create Room', function(){
+    it('View Client', function(){
         indexFuncs.performValidLogin(cy, targets.username, targets.password, 'Tester Hotel Overview')
-        dashBoardFuncs.viewRooms(cy, 'Rooms')
-        roomsOverviewFuncs.createNewRoom(cy, 'New Room')
-        createRoomFuncs.createNewRoom(cy, 'Double', '701', '7', '400', 'sea_view')
-        roomsOverviewFuncs.validateLastRoom(cy,'701', 'Category: double', 'Available: true', 'Price: 400kr', 'sea view')
-        roomsOverviewFuncs.backToDashboard(cy, 'Tester Hotel Overview')
-         dashBoardFuncs.performLogout(cy, 'Login')      
+        dashBoardFuncs.viewClient(cy, 'Clients')
+        clientOverviewFuncs.backToDashboard(cy, 'Tester Hotel Overview')
+        dashBoardFuncs.performLogout(cy, 'Login')      
         })      
 })
